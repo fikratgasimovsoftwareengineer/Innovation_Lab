@@ -1,14 +1,10 @@
----
-
 - step:
-    name: Execute mkdir myproject
+    name: default
+    image: python:3.7
+    command:
+    - pip install -r requirements.txt
+    - python ./mnist.py {parameters}
+- step:
+    name: test_mnist.py
     image: fikrat/tensorflow
-    command: mkdir myproject
-    #inputs:
-    #  - name: example-input
-    #    default: https://example.com/
-    #parameters:
-    # - name: example
-    #   description: Example parameter
-    #   type: integer
-    #   default: 300
+    command: python test_mnist.py

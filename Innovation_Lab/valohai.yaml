@@ -1,4 +1,0 @@
- - step: 
-    name: test_mnist
-    command: python test_mnist.py
-    image: tensorflow/tensorflow:latest-gpu
