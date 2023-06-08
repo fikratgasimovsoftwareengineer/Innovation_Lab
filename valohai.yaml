@@ -1,6 +1,6 @@
 - step:
     name: default
-    image: python:3.7
+    image: fikrat/tensorflow
     command:
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}

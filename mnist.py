@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 import valohai
 
-valohai.prepare(name='mnist')
+valohai.prepare(name='mnist', image="fikrat/tensorflow")
 input_path = 'mnist.npz'
 with np.load(input_path, allow_pickle=True) as f:
     x_train, y_train = f['x_train'], f['y_train']
