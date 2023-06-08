@@ -1,6 +1,6 @@
 - step:
     name: default
-    image: fikrat/tensorflow:tagname
+    image: tensorflow/tensorflow:latest-gpu
     command:
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}

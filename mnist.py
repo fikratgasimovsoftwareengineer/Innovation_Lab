@@ -7,7 +7,7 @@ default_inputs = {
 }
 
 
-valohai.prepare(name='mnist', image="fikrat/tensorflow:tagname", default_inputs=default_inputs)
+valohai.prepare(name='mnist', image="tensorflow/tensorflow:latest-gpu", default_inputs=default_inputs)
 input_path = valohai.inputs('dataset').path()
 with np.load(input_path, allow_pickle=True) as f:
     x_train, y_train = f['x_train'], f['y_train']
