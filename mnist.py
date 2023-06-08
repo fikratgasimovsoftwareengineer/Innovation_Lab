@@ -2,8 +2,13 @@ import numpy as np
 import tensorflow as tf
 import valohai
 
-valohai.prepare(name='mnist', image="fikrat/tensorflow")
-input_path = 'mnist.npz'
+default_inputs = {
+    'dataset':'dataset://vgg_fuoco/new-dataset-mnist' 
+}
+
+
+valohai.prepare(name='mnist', image="fikrat/tensorflow", default_inputs=default_inputs)
+input_path = valohai.inputs('dataset').path()
 with np.load(input_path, allow_pickle=True) as f:
     x_train, y_train = f['x_train'], f['y_train']
     x_test, y_test = f['x_test'], f['y_test']
