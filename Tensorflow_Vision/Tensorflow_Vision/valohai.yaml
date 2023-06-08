@@ -1,4 +1,0 @@
-- step:
-    name: train-KPE
-    command: python /home/fikrat/Tensorflow_Vision/Tensorflow_Vision/Tensorflow_Yolov5/yolov5/train.py
-    image: tensorflow/tensorflow:latest-gpu
