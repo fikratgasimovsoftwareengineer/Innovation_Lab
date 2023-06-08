@@ -9,6 +9,16 @@
       default: dataset://vgg_fuoco/new-dataset-mnist
       optional: false
 - step:
+    name: mnist
+    image: tensorflow/tensorflow:latest-gpu
+    command:
+    - pip install -r requirements.txt
+    - python ./mnist.py {parameters}
+    inputs:
+    - name: dataset
+      default: dataset://vgg_fuoco/new-dataset-mnist
+      optional: false
+- step:
     name: test_mnist.py
     image: fikrat/tensorflow
     command: python test_mnist.py
