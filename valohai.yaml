@@ -1,0 +1,14 @@
+---
+
+- step:
+    name: Execute mkdir myproject
+    image: fikrat/tensorflow
+    command: mkdir myproject
+    #inputs:
+    #  - name: example-input
+    #    default: https://example.com/
+    #parameters:
+    # - name: example
+    #   description: Example parameter
+    #   type: integer
+    #   default: 300
