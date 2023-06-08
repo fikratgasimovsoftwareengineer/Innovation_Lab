@@ -2,6 +2,7 @@ import numpy as np
 import tensorflow as tf
 import valohai
 
+# s3 database valohai, copy and paste url of the dataset
 default_inputs = {
     'dataset':'dataset://vgg_fuoco/new-dataset-mnist' 
 }
