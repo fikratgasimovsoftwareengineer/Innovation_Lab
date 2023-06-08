@@ -1,0 +1,6 @@
+names:
+- target
+nc: 1
+train: /tensorfl_vision/Tensorflow_Yolov5/yolo/train/images
+val: /tensorfl_vision/Tensorflow_Yolov5/yolo/val/images
+
