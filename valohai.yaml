@@ -1,6 +1,6 @@
 - step:
     name: default
-    image: fikrat/tensorflow
+    image: fikrat/tensorflow:tagname
     command:
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}

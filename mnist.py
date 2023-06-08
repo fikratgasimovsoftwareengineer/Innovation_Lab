@@ -7,7 +7,7 @@ default_inputs = {
 }
 
 
-valohai.prepare(name='mnist', image="fikrat/tensorflow", default_inputs=default_inputs)
+valohai.prepare(name='mnist', image="fikrat/tensorflow:tagname", default_inputs=default_inputs)
 input_path = valohai.inputs('dataset').path()
 with np.load(input_path, allow_pickle=True) as f:
     x_train, y_train = f['x_train'], f['y_train']
@@ -31,5 +31,5 @@ model.fit(x_train, y_train, epochs=5)
  
 model.evaluate(x_test,  y_test, verbose=2)
  
-output_path = 'model.h5'
+output_path = valohai.outputs().path('model.h5')
 model.save(output_path)
