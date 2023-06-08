@@ -1,0 +1,4 @@
+ - step: 
+    name: train_model
+    command: python test_mnist.py
+    image: tensorflow/tensorflow:latest-gpu
