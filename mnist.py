@@ -13,7 +13,7 @@ default_inputs = {
     'dataset2':'dataset://vgg_fuoco/new-dataset-version2'
     } 
 
-valohai.prepare(step='mnist', image='tensorflow/tensorflow:latest-gpu',image2="ultralytics/yolov5", default_inputs=default_inputs)
+valohai.prepare(step='mnist', image='fikrat/tensorflow:latest-gpu', default_inputs=default_inputs)
 
 input_path = valohai.inputs('dataset').path()
 with np.load(input_path, allow_pickle=True) as f:

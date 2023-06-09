@@ -10,7 +10,7 @@
       optional: false
 - step:
     name: mnist
-    image: tensorflow/tensorflow:latest-gpu
+    image: fikrat/tensorflow:latest-gpu
     command:
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}
