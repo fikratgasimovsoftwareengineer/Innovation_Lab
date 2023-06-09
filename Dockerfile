@@ -11,7 +11,7 @@ WORKDIR /tensorfl_lab
 # These commands copy your files into the specified directory in the image
 # and set that as the working location
 
-COPY . /Innovation_Lab/Innovation_Lab	
+COPY . /Innovation_Lab
 
 RUN echo "****Upgading Pip3"
 RUN python3 -m pip install --upgrade pip
@@ -25,15 +25,64 @@ RUN apt-get update && apt-get install -y build-essential libgl1-mesa-dev
 RUN echo "**apt utils"
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && \
 	apt-get install -y build-essential
+
+RUN echo "\n"
+
+RUN echo "** Bulding Tensorrt 8.5.1 **"
+RUN cd /Innovation_Lab/TensorRT && \
+	dpkg -i nv-tensorrt-local-repo-ubuntu2004-8.5.1-cuda-11.8_1.0-1_amd64.deb && \
+	sleep 3 && \
+	cp /var/nv-tensorrt-local-repo-ubuntu2004-8.5.1-cuda-11.8/nv-tensorrt-local-3E18D84E-keyring.gpg /usr/share/keyrings/ && \
+	sleep 3 && \
+	apt-get update
+RUN echo "\n"
+RUN echo "** Installing Tensorrt 8.5.1 **"
+RUN apt-get install -y tensorrt 
+RUN sleep 5
+RUN echo "***TensorRT BUILT Successfully***"
+
+
+RUN echo "\n"
+
+RUN echo "***Install Numpy and LibNVinfer***"
+RUN python3 -m pip install numpy && \
+	sleep 3 && \
+	apt-get install -y python3-libnvinfer-dev
+
+RUN echo "***Numpy and LibNvinfer BUILTSuccessfully***"
+RUN echo "\n"
+
+
+RUN apt-get install -y vim
+
+RUN echo "***OpenCV and Onnx Runtime Python Installation ***"
+RUN apt-get -y update && \ 
+	pip install opencv-python && \
+	pip install onnx && \
+	apt-get -y update && \
+	pip install onnxruntime && \
+	apt-get -y update && \
+	pip install onnxruntime-gpu==1.15.0
 	
 
+RUN echo "***Sklearn,Pandas,Seaborn Installation***"
+RUN apt-get -y update && pip3 install -U scikit-learn && \
+	pip install seaborn && pip install pandas 
+
+RUN echo "*** Installing Pycuda ****"
+RUN apt-get update && apt-get install -y python3-pycuda
 
 RUN echo "NVIDIA VALOHAI CONFIGURATION"
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 
-RUN apt-get clean && \
+
+RUN echo "***Install ProtoBuf and UFF Converter Successfully***"
+RUN apt-get update && python3 -m pip install protobuf && \
+	sleep 3 && \
+	apt-get install -y uff-converter-tf && \
+	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
 
