@@ -9,7 +9,7 @@ import valohai
 
 # vgg fuoco dataset
 default_inputs = { 
-    'dataset':'//vgg_fuoco/new-dataset-version',
+    'dataset':' dataset://vgg_fuoco/new-dataset-version',
     'dataset2':'dataset://vgg_fuoco/new-dataset-version2'
     }
 
