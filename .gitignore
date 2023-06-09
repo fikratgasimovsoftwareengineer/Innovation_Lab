@@ -1,7 +1,1 @@
-Tensorflow_Vision/Tensorflow_Vision/Onnx*
-Tensorflow_Vision/Tensorflow_Vision/Inference*
-Tensorflow_Vision/Tensorflow_Vision/Resnet18
-Tensorflow_Vision/Tensorflow_Vision/Tensorflow_Yolov5/nv-tensorrt*
-Tensorflow_Vision/Tensorflow_Vision/Tensorflow_Yolov5/tph-yolov5
-Tensorflow_Vision/Tensorflow_Vision/Tensorflow_Yolov5/yolov5
-Tensorflow_Vision/Tensorflow_Vision/Tensorflow_Yolov5/yolo
+/home/fikrat/Innovation_Lab/TensorRT/*
