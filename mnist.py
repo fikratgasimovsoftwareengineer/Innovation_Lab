@@ -3,10 +3,15 @@ import tensorflow as tf
 import valohai
 
 # s3 database valohai, copy and paste url of the dataset
-default_inputs = {
+'''default_inputs = {
     'dataset':'dataset://vgg_fuoco/new-dataset-mnist' 
-}
+}'''
 
+# vgg fuoco dataset
+default_inputs = { 
+    'dataset':'//vgg_fuoco/new-dataset-version',
+    'dataset2':'dataset://vgg_fuoco/new-dataset-version2'
+    }
 
 valohai.prepare(step='mnist', image="ultralytics/yolov5", default_inputs=default_inputs)
 

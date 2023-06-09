@@ -16,7 +16,10 @@
     - python ./mnist.py {parameters}
     inputs:
     - name: dataset
-      default: dataset://vgg_fuoco/new-dataset-mnist
+      default: //vgg_fuoco/new-dataset-version
+      optional: false
+    - name: dataset2
+      default: dataset://vgg_fuoco/new-dataset-version2
       optional: false
 - step:
     name: test_mnist.py
