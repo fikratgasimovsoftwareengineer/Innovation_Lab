@@ -10,7 +10,7 @@
       optional: false
 - step:
     name: mnist
-    image: ultralytics/yolov5
+    image: tensorflow/tensorflow:latest-gpu
     command:
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}
