@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+
 import valohai
 
 # s3 database valohai, copy and paste url of the dataset
@@ -9,10 +10,11 @@ import valohai
 
 # vgg fuoco dataset
 default_inputs = { 
-    'dataset':' dataset://vgg_fuoco/new-dataset-version',
-    'dataset2':'dataset://vgg_fuoco/new-dataset-version2'
+    'dataset':' dataset://vgg_fuoco/new-dataset-version', # train
+    'dataset2':'dataset://vgg_fuoco/new-dataset-version2' # val
     } 
 
+# custom docker gpu
 valohai.prepare(step='mnist', image='fikrat/tensorflow:latest-gpu', default_inputs=default_inputs)
 
 input_path = valohai.inputs('dataset').path()
