@@ -1,11 +1,19 @@
 - step:
     name: train
     image: fikrat/tensorflow:latest-gpu
+    environment: orakom-gpu-nodes 
     command:
     - git clone https://github.com/ultralytics/yolov5.git
     - pip install valohai-utils
-    - pip install -r requirements.txt
+    - pip install -r yolov5/requirements.txt
     - nohup python yolov5/train.py {parameters}
+    inputs:
+    - name: dataset2
+      default: dataset://vgg_fuoco/new-dataset-version
+      optional: false
+    - name: dataset4
+      default: dataset://vgg_fuoco/new-dataset-version2
+      optional: false
     parameters:
     - name: weights
       default: yolov5l6.pt
@@ -14,7 +22,7 @@
       optional: false
       type: string
     - name: data
-      default: /tensorfl_lab/yolo/update_vggFuoco.yaml
+      default: yolo/update_vggFuoco.yaml
       description: yolov5 yaml configuration!
       multiple-separator: ','
       optional: false
@@ -49,38 +57,3 @@
       multiple-separator: ','
       optional: false
       type: string
-    inputs:
-    - name: dataset
-      default: dataset://vgg_fuoco/new-dataset-version
-      optional: false
-    - name: dataset2
-      default: dataset://vgg_fuoco/new-dataset-version2
-      optional: false
-    environment: orakom-gpu-nodes
-- step:
-    name: default
-    image: tensorflow/tensorflow:latest-gpu
-    command:
-    - pip install -r requirements.txt
-    - python ./mnist.py {parameters}
-    inputs:
-    - name: dataset
-      default: dataset://vgg_fuoco/new-dataset-mnist
-      optional: false
-- step:
-    name: test_mnist.py
-    image: fikrat/tensorflow
-    command: python test_mnist.py
-- step:
-    name: train
-    image: fikrat/tensorflow:latest-gpu
-    command:
-    - pip install -r requirements.txt
-    - python yolov5/train.py {parameters}
-    inputs:
-    - name: dataset
-      default: ' dataset://vgg_fuoco/new-dataset-version'
-      optional: false
-    - name: dataset2
-      default: dataset://vgg_fuoco/new-dataset-version2
-      optional: false
