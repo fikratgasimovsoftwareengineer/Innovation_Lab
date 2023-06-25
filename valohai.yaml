@@ -1,4 +1,63 @@
 - step:
+    name: train
+    image: fikrat/tensorflow:latest-gpu
+    command:
+    - git clone https://github.com/ultralytics/yolov5.git
+    - pip install valohai-utils
+    - pip install -r requirements.txt
+    - nohup python yolov5/train.py {parameters}
+    parameters:
+    - name: weights
+      default: yolov5l6.pt
+      description: model weights
+      multiple-separator: ','
+      optional: false
+      type: string
+    - name: data
+      default: /tensorfl_lab/yolo/update_vggFuoco.yaml
+      description: yolov5 yaml configuration!
+      multiple-separator: ','
+      optional: false
+      type: string
+    - name: img
+      default: 640
+      description: img size
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: batch
+      default: 32
+      description: max batch size
+      multiple-separator: ','
+      optional: false
+      type: string
+    - name: epochs
+      default: 300
+      description: epochs max
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: optimizer
+      default: Adam
+      description: Optimizer Adam
+      multiple-separator: ','
+      optional: false
+      type: string
+    - name: project
+      default: /valohai/outputs/
+      description: save to project/name
+      multiple-separator: ','
+      optional: false
+      type: string
+    inputs:
+    - name: dataset
+      default: dataset://vgg_fuoco/new-dataset-version
+      optional: false
+    - name: dataset2
+      default: dataset://vgg_fuoco/new-dataset-version2
+      optional: false
+    environment: orakom-gpu-nodes
+- step:
     name: default
     image: tensorflow/tensorflow:latest-gpu
     command:
@@ -9,11 +68,15 @@
       default: dataset://vgg_fuoco/new-dataset-mnist
       optional: false
 - step:
-    name: mnist
+    name: test_mnist.py
+    image: fikrat/tensorflow
+    command: python test_mnist.py
+- step:
+    name: train
     image: fikrat/tensorflow:latest-gpu
     command:
     - pip install -r requirements.txt
-    - python ./mnist.py {parameters}
+    - python yolov5/train.py {parameters}
     inputs:
     - name: dataset
       default: ' dataset://vgg_fuoco/new-dataset-version'
@@ -21,7 +84,3 @@
     - name: dataset2
       default: dataset://vgg_fuoco/new-dataset-version2
       optional: false
-- step:
-    name: test_mnist.py
-    image: fikrat/tensorflow
-    command: python test_mnist.py

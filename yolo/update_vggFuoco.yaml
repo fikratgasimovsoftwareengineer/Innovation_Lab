@@ -1,0 +1,7 @@
+names:
+  - target
+  - target
+nc: 2
+train: /tensorfl_lab/yolo/yolo/train/images
+val:  /tensorfl_lab/yolo/yolo/val/images
+

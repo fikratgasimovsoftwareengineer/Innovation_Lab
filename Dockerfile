@@ -5,7 +5,7 @@
 # See https://docs.docker.com/samples/library/gcc/ for more on how to use this image
 #FROM gcc:latest
 FROM ubuntu:20.04
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:latest-gpu	
 FROM tensorflow/tensorflow:latest-gpu-jupyter
 WORKDIR /tensorfl_lab
 # These commands copy your files into the specified directory in the image
@@ -16,7 +16,6 @@ COPY . /Innovation_Lab
 RUN echo "****Upgading Pip3"
 RUN python3 -m pip install --upgrade pip
 
-RUN echo "**Install Git**"
 RUN apt-get update && apt-get install -y git
 
 RUN echo "***Installing LIBGL***"
@@ -76,6 +75,8 @@ RUN echo "NVIDIA VALOHAI CONFIGURATION"
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
+RUN echo "Install valohai components"
+RUN pip install valohai-cli && pip install valohai-utils
 
 
 RUN echo "***Install ProtoBuf and UFF Converter Successfully***"
