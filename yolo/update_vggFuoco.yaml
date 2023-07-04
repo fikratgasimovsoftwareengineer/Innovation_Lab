@@ -2,6 +2,7 @@ names:
   - target
   - target
 nc: 2
-train:  dataset://vgg_fuoco/new-dataset-version
-val:  dataset://vgg_fuoco/new-dataset-version2
+train:  /valohai/inputs/dataset-train #dataset://vgg_fuoco/new-dataset-version
+val:  /valohai/inputs/dataset-val 
+
 

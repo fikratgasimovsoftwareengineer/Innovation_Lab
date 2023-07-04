@@ -8,8 +8,11 @@
     - pip install -r yolov5/requirements.txt
     - nohup python yolov5/train.py {parameters}
     inputs:
-    - name: dataset
+    - name: dataset-train
       default: dataset://vgg_fuoco/new-dataset-version # train
+      optional: false
+    - name: dataset-val
+      default: dataset://vgg_fuoco/new-dataset-version2
       optional: false
     parameters:
     - name: weights
