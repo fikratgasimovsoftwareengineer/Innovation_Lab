@@ -9,7 +9,7 @@
     - nohup python yolov5/train.py {parameters}
     inputs:
     - name: dataset
-      default: dataset://vgg_fuoco/new-dataset-version
+      default: dataset://vgg_fuoco/new-dataset-version # train
       optional: false
     parameters:
     - name: weights
