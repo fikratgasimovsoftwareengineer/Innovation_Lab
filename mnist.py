@@ -10,7 +10,7 @@ import valohai
 
 # vgg fuoco dataset
 default_inputs = { 
-    'dataset':' dataset://vgg_fuoco/new-dataset-version', # train
+    'dataset':'dataset://vgg_fuoco/new-dataset-version', # train
     'dataset2':'dataset://vgg_fuoco/new-dataset-version2' # val
     } 
 
