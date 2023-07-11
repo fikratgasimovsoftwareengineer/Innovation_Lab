@@ -5,9 +5,15 @@
     - pip install -r requirements.txt
     - python ./mnist.py {parameters}
     inputs:
-    - name: dataset
+    - name: train/images
       default: dataset://vgg_fuoco/new-dataset-version
       optional: false
-    - name: dataset2
+    - name: val/images
       default: dataset://vgg_fuoco/new-dataset-version2
+      optional: false
+    - name: train/labels
+      default: dataset://vgg_fuoco/new-dataset-train_labels
+      optional: false
+    - name: val/labels
+      default: dataset://vgg_fuoco/new-dataset-val_labels
       optional: false
